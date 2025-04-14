@@ -1,0 +1,5 @@
+profiles:
+  - name: Work Mac
+    tags: [cli,dev,secure]
+  - name: Hyprland
+    tags: [arch,tiling,dev]
