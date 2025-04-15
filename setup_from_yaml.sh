@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo "cur_dur_setup:$PWD"
 CONFIG="apps.yaml"
 TAG_FILTER=""
 while [[ "$#" -gt 0 ]]; do
