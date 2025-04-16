@@ -1,12 +1,7 @@
 groups:
   - name: CLI Tools
-    icon: "🧰"
     apps:
       - name: tmux
         command: tmux
-        install: brew
-        tags: [cli]
-      - name: docker
-        command: docker
         install: brew
         tags: [cli]

@@ -1,0 +1,4 @@
+secrets.yaml.gpg
+secrets.*.json.gpg
+setup.log
+.env

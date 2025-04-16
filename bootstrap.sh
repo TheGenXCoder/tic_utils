@@ -1,30 +1,33 @@
 #!/bin/bash
-echo "cur_dur_bootstrap:$PWD"
+
 set -e
 
-# Load components
 for module in platform.sh installer.sh secrets.sh profiles.sh dotfiles.sh; do
   if [[ ! -f "./$module" ]]; then
-    echo "❌ Required file missing: $module"
+    echo "❌ Required module missing: $module"
     exit 1
   fi
   source "./$module"
 done
 
-# Profile + dotfiles
 select_profile
+
+echo -e "\n🔐 Loading secrets for profile: $SETUP_PROFILE"
+if [[ -f "./secrets.sh" ]]; then
+  eval "$(./secrets.sh export --profile "$SETUP_PROFILE")" || echo "⚠️  Failed to load secrets for $SETUP_PROFILE"
+else
+  echo "⚠️  secrets.sh not found. Skipping secrets."
+fi
+
 restow_dotfiles
 
-# Debug summary
 echo -e "\n🌐 Platform: $PLATFORM"
 echo -e "👤 Profile: $SETUP_PROFILE"
 echo -e "🏷️ Tags: $TAG_FILTER\n"
 
-# Run setup
-if [[ ! -x $SETUPDIR/setup_from_yaml.sh ]]; then
-  echo "❌ setup_from_yaml.sh is missing or not executable."
+if [[ ! -x ./setup_from_yaml.sh ]]; then
+  echo "❌ setup_from_yaml.sh not found or not executable."
   exit 1
 fi
 
-echo "cur_dur_call_setup:$PWD"
-$SETUPDIR/setup_from_yaml.sh --tag="$TAG_FILTER"
+./setup_from_yaml.sh --tag="$TAG_FILTER"
