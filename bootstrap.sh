@@ -19,7 +19,7 @@ else
   echo "⚠️  secrets.sh not found. Skipping secrets."
 fi
 
-restow_dotfiles
+#restow_dotfiles
 
 echo -e "\n🌐 Platform: $PLATFORM"
 echo -e "👤 Profile: $SETUP_PROFILE"
