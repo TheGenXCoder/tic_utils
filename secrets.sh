@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "[secrets.sh] Fully integrated GPG+profile secrets manager"
+echo '[secrets.sh] placeholder for real GPG/Vault secrets manager'

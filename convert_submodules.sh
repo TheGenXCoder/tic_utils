@@ -1,2 +1,1 @@
-#!/bin/bash
-echo "[convert_submodules.sh] Convert plugin repos to submodules"
+echo '[convert_submodules.sh] Not implemented'

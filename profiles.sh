@@ -1,12 +1,8 @@
 #!/bin/bash
-PROFILE_FILE="profiles.yaml"
 select_profile() {
-  [[ ! -f "$PROFILE_FILE" ]] && echo "⚠️ No profile file found" && return
   echo "📁 Available Profiles:"
-  yq e '.profiles[].name' "$PROFILE_FILE" | nl -w2 -s'. '
-  read -p "Select a profile number: " profile_number
-  PROFILE_NAME=$(yq e ".profiles[$((profile_number - 1))].name" "$PROFILE_FILE")
-  PROFILE_TAGS=$(yq e ".profiles[$((profile_number - 1))].tags[]" "$PROFILE_FILE" | xargs)
-  export SETUP_PROFILE="$PROFILE_NAME"
-  export TAG_FILTER="$PROFILE_TAGS"
+  yq e '.profiles[].name' profiles.yaml | nl -w2 -s'. '
+  read -p "Select a profile number: " n
+  export SETUP_PROFILE=$(yq e ".profiles[$((n-1))].name" profiles.yaml)
+  export TAG_FILTER=$(yq e ".profiles[$((n-1))].tags[]" profiles.yaml | xargs)
 }

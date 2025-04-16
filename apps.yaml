@@ -1,5 +1,15 @@
 groups:
-  - name: Dev Tools
+  - name: CLI
+    apps:
+      - name: tmux
+        command: tmux
+        install: brew
+        tags: [cli]
+      - name: zoxide
+        command: zoxide
+        install: brew
+        tags: [cli]
+  - name: Dev
     apps:
       - name: code
         command: code
@@ -8,69 +18,4 @@ groups:
       - name: go
         command: go
         install: brew
-        tags: [dev,cli]
-      - name: node
-        command: node
-        install: brew
-        tags: [dev,cli]
-      - name: python
-        command: python3
-        install: brew
-        tags: [dev,cli]
-      - name: docker
-        command: docker
-        install: brew
-        tags: [devops,gui]
-
-  - name: CLI Utilities
-    apps:
-      - name: tmux
-        command: tmux
-        install: brew
-        tags: [cli,terminal]
-      - name: zoxide
-        command: zoxide
-        install: brew
-        tags: [cli]
-      - name: eza
-        command: eza
-        install: brew
-        tags: [cli]
-      - name: fd
-        command: fd
-        install: brew
-        tags: [cli]
-      - name: fzf
-        command: fzf
-        install: brew
-        tags: [cli]
-
-  - name: GUI Apps
-    apps:
-      - name: Microsoft Teams
-        command: "/Applications/Microsoft Teams.app"
-        install: brew-cask
-        tags: [gui,comms]
-      - name: ghostty
-        command: ghostty
-        install: brew
-        tags: [terminal,gui]
-
-  - name: Platform Specific
-    apps:
-      - name: stow
-        command: stow
-        install: brew
-        tags: [core,macos]
-      - name: gnupg
-        command: gpg
-        install: brew
-        tags: [core,macos]
-      - name: jq
-        command: jq
-        install: brew
-        tags: [core]
-      - name: yq
-        command: yq
-        install: brew
-        tags: [core]
+        tags: [dev]

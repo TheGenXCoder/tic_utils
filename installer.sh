@@ -1,1 +1,1 @@
-install_package() { echo Installing $1 with $2; }
+install_package() { echo "Installing $1 via $2"; }
